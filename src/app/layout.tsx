@@ -1,8 +1,10 @@
+
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google'; // Geist_Mono is not used in the landing page typically
+import { Geist } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { CookieConsent } from '@/components/cookie-consent'; // Importar CookieConsent
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,15 +19,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'formacionGWO.es - Cursos de Seguridad para Aerogeneradores',
     description: 'Seguridad y técnicas certificadas para aerogeneradores.',
-    url: 'https://formaciongwo.es', // Replace with actual domain
+    url: 'https://formaciongwo.es', 
     siteName: 'formacionGWO.es',
-    // images: [ // Add a relevant image for social sharing
-    //   {
-    //     url: 'https://formaciongwo.es/og-image.png', // Replace with actual image URL
-    //     width: 1200,
-    //     height: 630,
-    //   },
-    // ],
     locale: 'es_ES',
     type: 'website',
   },
@@ -41,6 +36,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} font-sans antialiased`}>
         {children}
         <Toaster />
+        <CookieConsent /> {/* Añadir CookieConsent aquí */}
         <SpeedInsights />
       </body>
     </html>
