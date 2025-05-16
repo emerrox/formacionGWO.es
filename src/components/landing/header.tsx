@@ -14,17 +14,14 @@ const navItems = [
   { label: 'Contacto', href: '#contact' },
 ];
 
-// IDs de las secciones que deben disparar la animación al volverse visibles
-// const SECTIONS_TO_ANIMATE_FOR = ['gwo-info', 'courses']; // Removed for nav button scroll trigger
 const ANIMATION_DURATION = 1000; // ms, should match 'cta-attention' in tailwind.config.ts
-const PERIODIC_ANIMATION_INTERVAL = 30000; // ms, e.g., 30 seconds
+const PERIODIC_ANIMATION_INTERVAL = 10000; // ms, e.g., 10 seconds
 
 export function Header() {
   const [animateCtaButton, setAnimateCtaButton] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-  // const [triggeredSections, setTriggeredSections] = useState<Set<string>>(new Set()); // Removed
 
-  // Efecto para resetear la animación del botón CTA después de que se complete
+  // Effect to reset the CTA button animation after it completes
   useEffect(() => {
     if (animateCtaButton) {
       const timer = setTimeout(() => {
@@ -34,51 +31,16 @@ export function Header() {
     }
   }, [animateCtaButton]);
 
-  // Efecto para manejar la lógica de scroll y activar la animación - REMOVED for nav button
-  // useEffect(() => {
-  //   const handleScrollOrVisibilityChange = () => {
-  //     if (document.hidden) return; // No hacer nada si la pestaña no está activa
-
-  //     for (const sectionId of SECTIONS_TO_ANIMATE_FOR) {
-  //       if (triggeredSections.has(sectionId)) {
-  //         continue;
-  //       }
-
-  //       const sectionElement = document.getElementById(sectionId);
-  //       if (sectionElement) {
-  //         const rect = sectionElement.getBoundingClientRect();
-  //         const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
-
-  //         if (isVisible) {
-  //           setAnimateCtaButton(true);
-  //           setTriggeredSections(prev => new Set(prev).add(sectionId));
-  //           break;
-  //         }
-  //       }
-  //     }
-  //   };
-
-  //   const initialCheckTimeout = setTimeout(handleScrollOrVisibilityChange, 100);
-  //   window.addEventListener('scroll', handleScrollOrVisibilityChange, { passive: true });
-  //   document.addEventListener('visibilitychange', handleScrollOrVisibilityChange);
-
-  //   return () => {
-  //     clearTimeout(initialCheckTimeout);
-  //     window.removeEventListener('scroll', handleScrollOrVisibilityChange);
-  //     document.removeEventListener('visibilitychange', handleScrollOrVisibilityChange);
-  //   };
-  // }, [triggeredSections]);
-
-  // Efecto para la animación periódica
+  // Effect for periodic animation of the CTA button in the header
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (!document.hidden) { // Solo animar si la pestaña está visible
+      if (!document.hidden) { // Only animate if the tab is visible
         setAnimateCtaButton(true);
       }
     }, PERIODIC_ANIMATION_INTERVAL);
 
-    return () => clearInterval(intervalId); // Limpiar intervalo al desmontar
-  }, []); // Se ejecuta una vez al montar
+    return () => clearInterval(intervalId); // Cleanup interval on unmount
+  }, []); // Runs once on mount
 
   const handleNavLinkClick = () => {
     setIsSheetOpen(false);
