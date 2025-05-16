@@ -85,26 +85,26 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          '5%': { transform: 'scale(1.03) rotate(0deg)' }, /* Comienza a escalar y mantiene la escala */
+          '5%': { transform: 'scale(1.03) rotate(0deg)' }, // Escala inicial
 
-          /* Primera sacudida (escala: 1.03, rotación: +/-4deg) */
-          '10%': { transform: 'scale(1.03) rotate(-4deg)' },
-          '15%': { transform: 'scale(1.03) rotate(4deg)' },
-          '20%': { transform: 'scale(1.03) rotate(0deg)' },
+          // Primera sacudida muy rápida (escala: 1.03, rotación: +/-4deg)
+          '8%': { transform: 'scale(1.03) rotate(-4deg)' },
+          '11%': { transform: 'scale(1.03) rotate(4deg)' },
+          '14%': { transform: 'scale(1.03) rotate(0deg)' },
 
-          /* Segunda sacudida (escala: 1.03, rotación: +/-4deg) */
-          '25%': { transform: 'scale(1.03) rotate(-4deg)' },
-          '30%': { transform: 'scale(1.03) rotate(4deg)' },
-          '35%': { transform: 'scale(1.03) rotate(0deg)' },
+          // Segunda sacudida muy rápida (escala: 1.03, rotación: +/-4deg)
+          '17%': { transform: 'scale(1.03) rotate(-4deg)' },
+          '20%': { transform: 'scale(1.03) rotate(4deg)' },
+          '23%': { transform: 'scale(1.03) rotate(0deg)' },
 
-          /* Pausa opcional o inicio de la fase de reducción/última sacudida */
-          '50%': { transform: 'scale(1.03) rotate(0deg)' }, /* Mantiene escala antes de la última fase */
+          // Mantener escala antes de la fase lenta
+          '30%': { transform: 'scale(1.03) rotate(0deg)' },
 
-          /* Tercera sacudida (rango menor: +/-3deg) Y Reducción de Escala (de 1.03 a 1) */
-          /* Esta fase es de 50% a 100% de la duración total */
-          '66%': { transform: 'scale(calc(1 + 0.03 * (1 - (16/50)))) rotate(-3deg)' }, /* Escala ~1.02, -3deg */
-          '82%': { transform: 'scale(calc(1 + 0.03 * (1 - (32/50)))) rotate(3deg)' },  /* Escala ~1.01, +3deg */
-          '100%': { transform: 'scale(1) rotate(0deg)' }, /* Fin de la animación, escala y rotación originales */
+          // Tercera sacudida (más lenta, rango menor +/-3deg) mientras vuelve al tamaño original progresivamente
+          // Esta fase (30% a 100%) es el 70% de la duración total, haciendo esta parte más lenta.
+          '53%': { transform: 'scale(calc(1 + 0.03 * (1 - (23/70)))) rotate(-3deg)' }, // Progreso en fase de bajada: 23/70
+          '76%': { transform: 'scale(calc(1 + 0.03 * (1 - (46/70)))) rotate(3deg)' },   // Progreso en fase de bajada: 46/70
+          '100%': { transform: 'scale(1) rotate(0deg)' }, // Fin
         }
   		},
   		animation: {
