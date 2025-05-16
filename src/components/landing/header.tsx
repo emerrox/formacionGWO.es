@@ -29,7 +29,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex flex-1 items-center justify-end space-x-4">
+        <div className="flex flex-1 items-center justify-end space-x-4 md:pr-2"> {/* Added md:pr-2 for spacing */}
           <Button asChild className="hidden md:inline-flex">
             <Link href="#contact-form">Solicita Información</Link>
           </Button>
