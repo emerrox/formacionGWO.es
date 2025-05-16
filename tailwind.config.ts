@@ -85,27 +85,18 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'rotate(0deg)' },
-          '8%': { transform: 'rotate(0deg)' }, // Initial Hold
-
-          // Shake 1 (-4deg to 4deg)
-          '16%': { transform: 'rotate(-4deg)' }, // 8% for 0 to -4
-          '27%': { transform: 'rotate(4deg)' },  // 11% for -4 to 4 (smoother swing)
-          '35%': { transform: 'rotate(0deg)' },  // 8% for 4 to 0
-
-          '39%': { transform: 'rotate(0deg)' }, // Hold between shakes
-
-          // Shake 2 (-4deg to 4deg)
-          '47%': { transform: 'rotate(-4deg)' }, // 8% for 0 to -4
-          '58%': { transform: 'rotate(4deg)' },  // 11% for -4 to 4 (smoother swing)
-          '66%': { transform: 'rotate(0deg)' },  // 8% for 4 to 0
-
-          '70%': { transform: 'rotate(0deg)' }, // Hold between shakes
-
-          // Shake 3 (-3deg to 3deg)
-          '78%': { transform: 'rotate(-3deg)' }, // 8% for 0 to -3
-          '88%': { transform: 'rotate(3deg)' },  // 10% for -3 to 3 (smoother swing)
-          '96%': { transform: 'rotate(0deg)' },  // 8% for 3 to 0
-          '100%': { transform: 'rotate(0deg)' }, // Final hold
+          // Shake 1
+          '8%': { transform: 'rotate(-4deg)' },
+          '21%': { transform: 'rotate(4deg)' },
+          '33%': { transform: 'rotate(0deg)' },
+          // Shake 2 (starts immediately from 0deg)
+          '41%': { transform: 'rotate(-4deg)' }, // 33 + 8
+          '54%': { transform: 'rotate(4deg)' },  // 41 + 13
+          '66%': { transform: 'rotate(0deg)' },  // 54 + 12
+          // Shake 3 (smaller angle, starts immediately from 0deg)
+          '75%': { transform: 'rotate(-3deg)' }, // 66 + 9
+          '88%': { transform: 'rotate(3deg)' },  // 75 + 13
+          '100%': { transform: 'rotate(0deg)' }, // 88 + 12
         }
   		}
   	},
