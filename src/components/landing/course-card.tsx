@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import type { Course } from '@/types';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -56,7 +57,7 @@ export function CourseCard({ course }: CourseCardProps) {
       </CardContent>
       <CardFooter className="p-6 pt-0">
         <Button variant="outline" className="w-full" asChild>
-           <Link href={`#contact-form?course=${encodeURIComponent(course.title)}`}>
+           <Link href={`#contact-form?course=${encodeURIComponent(course.title)}`} scroll={false}>
             Más Información
            </Link>
         </Button>
