@@ -16,6 +16,8 @@ const navItems = [
 
 // IDs de las secciones que deben disparar la animación al volverse visibles
 const SECTIONS_TO_ANIMATE_FOR = ['gwo-info', 'courses'];
+const ANIMATION_DURATION = 2500; // ms, should match 'cta-attention' in tailwind.config.ts
+const PERIODIC_ANIMATION_INTERVAL = 30000; // ms, e.g., 30 seconds
 
 export function Header() {
   const [animateCtaButton, setAnimateCtaButton] = useState(false);
@@ -27,53 +29,59 @@ export function Header() {
     if (animateCtaButton) {
       const timer = setTimeout(() => {
         setAnimateCtaButton(false);
-      }, 2500); // Duración de la animación 'cta-attention'
+      }, ANIMATION_DURATION);
       return () => clearTimeout(timer);
     }
   }, [animateCtaButton]);
 
   // Efecto para manejar la lógica de scroll y activar la animación
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScrollOrVisibilityChange = () => {
       if (document.hidden) return; // No hacer nada si la pestaña no está activa
 
       for (const sectionId of SECTIONS_TO_ANIMATE_FOR) {
         if (triggeredSections.has(sectionId)) {
-          continue; // Ya se animó para esta sección
+          continue; 
         }
 
         const sectionElement = document.getElementById(sectionId);
         if (sectionElement) {
           const rect = sectionElement.getBoundingClientRect();
-          // Condición para considerar la sección visible:
-          // la parte superior de la sección está dentro del 80% superior de la altura de la ventana
-          // y la parte inferior de la sección aún no ha pasado completamente por encima del borde superior de la ventana.
           const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
 
           if (isVisible) {
             setAnimateCtaButton(true);
             setTriggeredSections(prev => new Set(prev).add(sectionId));
-            break; // Animar solo para la primera nueva sección visible en este evento de scroll
+            break; 
           }
         }
       }
     };
 
-    // Una comprobación inicial al montar, después de un breve retardo
-    const initialCheckTimeout = setTimeout(handleScroll, 100);
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    document.addEventListener('visibilitychange', handleScroll); // Re-chequear si la pestaña vuelve a ser visible
+    const initialCheckTimeout = setTimeout(handleScrollOrVisibilityChange, 100);
+    window.addEventListener('scroll', handleScrollOrVisibilityChange, { passive: true });
+    document.addEventListener('visibilitychange', handleScrollOrVisibilityChange);
 
     return () => {
       clearTimeout(initialCheckTimeout);
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('visibilitychange', handleScroll);
+      window.removeEventListener('scroll', handleScrollOrVisibilityChange);
+      document.removeEventListener('visibilitychange', handleScrollOrVisibilityChange);
     };
-  }, [triggeredSections]); // Se vuelve a ejecutar si triggeredSections cambia, aunque el listener de scroll usa el estado más reciente.
+  }, [triggeredSections]);
+
+  // Efecto para la animación periódica
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      if (!document.hidden) { // Solo animar si la pestaña está visible
+        setAnimateCtaButton(true);
+      }
+    }, PERIODIC_ANIMATION_INTERVAL);
+
+    return () => clearInterval(intervalId); // Limpiar intervalo al desmontar
+  }, []); // Se ejecuta una vez al montar
 
   const handleNavLinkClick = () => {
-    setIsSheetOpen(false); // Solo cerrar el menú móvil
+    setIsSheetOpen(false); 
   };
 
   return (
@@ -88,7 +96,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              onClick={handleNavLinkClick} // No anima, solo cierra el sheet si estuviera abierto (aunque aquí no aplica)
+              onClick={handleNavLinkClick}
               className="text-foreground/60 transition-colors hover:text-foreground/80"
             >
               {item.label}
