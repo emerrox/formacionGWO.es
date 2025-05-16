@@ -84,8 +84,15 @@ export default {
   				}
   			},
         'cta-attention': {
-          '0%, 100%': { transform: 'scale(1)' },
-          '50%': { transform: 'scale(1.05)' },
+          '0%': { transform: 'rotate(0deg)' },
+          '15%': { transform: 'rotate(-4deg)' },
+          '30%': { transform: 'rotate(4deg)' },
+          '45%': { transform: 'rotate(-4deg)' },
+          '60%': { transform: 'rotate(4deg)' },
+          // Slower third shake
+          '75%': { transform: 'rotate(-3deg)' },
+          '90%': { transform: 'rotate(3deg)' },
+          '100%': { transform: 'rotate(0deg)' },
         }
   		}
   	},
