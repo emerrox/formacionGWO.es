@@ -86,19 +86,19 @@ export default {
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
           /* First shake - growing */
-          '16%': { transform: 'scale(1.04) rotate(-8deg)' }, /* Mid-grow, tilt left */
-          '32%': { transform: 'scale(1.08) rotate(8deg)' },  /* Near peak growth, tilt right */
-          '50%': { transform: 'scale(1.1) rotate(0deg)' },   /* Peak scale, end of first shake rotation */
+          '16%': { transform: 'scale(1.02) rotate(-8deg)' },
+          '32%': { transform: 'scale(1.04) rotate(8deg)' },
+          '50%': { transform: 'scale(1.05) rotate(0deg)' },
           /* Second shake - shrinking */
-          '66%': { transform: 'scale(1.07) rotate(8deg)' },  /* Start shrink, tilt right */
-          '82%': { transform: 'scale(1.03) rotate(-8deg)' }, /* Mid-shrink, tilt left */
-          '100%': { transform: 'scale(1) rotate(0deg)' },  /* Back to original size and rotation */
+          '66%': { transform: 'scale(1.03) rotate(8deg)' },
+          '82%': { transform: 'scale(1.01) rotate(-8deg)' },
+          '100%': { transform: 'scale(1) rotate(0deg)' },
         }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.0s ease-in-out 0.5s 1',
+        'cta-attention': 'cta-attention 0.8s ease-in-out 0.5s 1',
   		}
   	}
   },
