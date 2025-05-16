@@ -14,8 +14,8 @@ export function Footer() {
           </div>
           <nav className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 mb-4 md:mb-0">
             <Link href="/politica-de-cookies" className="text-sm text-foreground/70 hover:text-primary">Política de Cookies</Link>
+            <Link href="/politica-de-privacidad" className="text-sm text-foreground/70 hover:text-primary">Política de Privacidad</Link>
             {/* <Link href="/aviso-legal" className="text-sm text-foreground/70 hover:text-primary">Aviso Legal</Link> */}
-            {/* <Link href="/politica-de-privacidad" className="text-sm text-foreground/70 hover:text-primary">Política de Privacidad</Link> */}
           </nav>
           <p className="text-sm text-foreground/70">
             &copy; {currentYear} formacionGWO.es. Todos los derechos reservados.
