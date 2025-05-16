@@ -26,12 +26,12 @@ export function HeroSection() {
         <div className="mt-16 sm:mt-24">
           <div className="relative aspect-[2/1] w-full max-w-4xl mx-auto overflow-hidden rounded-xl shadow-2xl">
             <Image
-              src="https://placehold.co/1200x600.png"
+              src="/images/portada.png"
               alt="Trabajadores en un aerogenerador realizando mantenimiento"
               layout="fill"
               objectFit="cover"
               priority
-              data-ai-hint="wind turbine maintenance"
+              data-ai-hint="wind energy"
             />
           </div>
         </div>
