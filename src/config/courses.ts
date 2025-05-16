@@ -13,7 +13,7 @@ export const courses: Course[] = [
       { name: 'Supervivencia en el mar', icon: LifeBuoy }
     ],
     duration: '28h onshore / 35h offshore',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/bst.png',
     imageHint: 'safety training wind turbine',
     shortDescription: 'Entrenamiento esencial en seguridad para trabajos en la industria eólica.'
   },
@@ -24,7 +24,7 @@ export const courses: Course[] = [
       { name: 'Refresco de BST (presencial / online parcial)', icon: ShieldCheck }
     ],
     duration: '18h onshore / 25h offshore',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/bstr.png',
     imageHint: 'refresher course safety',
     shortDescription: 'Actualización de conocimientos y habilidades del BST.'
   },
@@ -37,7 +37,7 @@ export const courses: Course[] = [
       { name: 'Instalación y mantenimiento (14h)', icon: ArrowUpDown }
     ],
     duration: 'Total: 25h',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/slt.png',
     imageHint: 'lift training elevator',
     shortDescription: 'Formación completa para el uso y mantenimiento de elevadores.'
   },
@@ -51,7 +51,7 @@ export const courses: Course[] = [
       { name: 'Instalación opcional (18h)', icon: Briefcase }
     ],
     duration: '30,5h (MEH) / 29h (MI)',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/btt.png',
     imageHint: 'technical training wind turbine',
     shortDescription: 'Capacitación técnica fundamental en mecánica, electricidad e hidráulica.'
   },
@@ -64,7 +64,7 @@ export const courses: Course[] = [
       { name: 'Versión “rescatista único”', icon: Users }
     ],
     duration: 'Combinado: 21h',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/art.png',
     imageHint: 'rescue training height',
     shortDescription: 'Técnicas avanzadas de rescate en diversos componentes de aerogeneradores.'
   },
@@ -76,7 +76,7 @@ export const courses: Course[] = [
       { name: 'Siemens Gamesa Blade Repair', icon: Construction }
     ],
     duration: '70h',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/br.png',
     imageHint: 'blade repair wind turbine',
     shortDescription: 'Especialización en la reparación y mantenimiento de palas de aerogeneradores.'
   },
@@ -87,7 +87,7 @@ export const courses: Course[] = [
       { name: 'Primeros auxilios básico (BST) + Avanzado (EFA)', icon: Stethoscope }
     ],
     duration: '20h',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/efa.png',
     imageHint: 'first aid advanced',
     shortDescription: 'Formación avanzada en primeros auxilios para situaciones críticas.'
   },
@@ -100,7 +100,7 @@ export const courses: Course[] = [
       { name: 'Seguridad de fluidos a presión', icon: Droplets }
     ],
     duration: '22h',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/cohe.png',
     imageHint: 'hazardous energy control',
     shortDescription: 'Control y gestión de energías peligrosas en entornos industriales.'
   },
@@ -113,7 +113,7 @@ export const courses: Course[] = [
       { name: 'Uso de polipastos', icon: ArrowUpDown }
     ],
     duration: '14h',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/sls.png',
     imageHint: 'slinger signaller crane',
     shortDescription: 'Capacitación para señalistas y manejo seguro de cargas.'
   },
@@ -124,7 +124,7 @@ export const courses: Course[] = [
       { name: 'Acceso restringido onshore/offshore', icon: KeyRound }
     ],
     duration: '7h',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/wla.png',
     imageHint: 'limited access wind farm',
     shortDescription: 'Protocolos de acceso seguro a zonas restringidas en parques eólicos.'
   },
@@ -135,7 +135,7 @@ export const courses: Course[] = [
       { name: 'Metodologías de enseñanza para adultos', icon: Presentation }
     ],
     duration: '72h (9 días), certificado permanente',
-    image: 'https://placehold.co/600x400.png',
+    image: '/images/iqt.png',
     imageHint: 'instructor training classroom',
     shortDescription: 'Formación para cualificar instructores en estándares GWO.'
   }

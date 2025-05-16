@@ -1,3 +1,4 @@
+
 # GWO Landing Page (formacionGWO.es)
 
 This is a Next.js application for formacionGWO.es, a company specializing in GWO (Global Wind Organisation) training courses.
