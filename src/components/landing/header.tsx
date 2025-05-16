@@ -15,14 +15,14 @@ const navItems = [
 ];
 
 // IDs de las secciones que deben disparar la animación al volverse visibles
-const SECTIONS_TO_ANIMATE_FOR = ['gwo-info', 'courses'];
+// const SECTIONS_TO_ANIMATE_FOR = ['gwo-info', 'courses']; // Removed for nav button scroll trigger
 const ANIMATION_DURATION = 1000; // ms, should match 'cta-attention' in tailwind.config.ts
 const PERIODIC_ANIMATION_INTERVAL = 30000; // ms, e.g., 30 seconds
 
 export function Header() {
   const [animateCtaButton, setAnimateCtaButton] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
-  const [triggeredSections, setTriggeredSections] = useState<Set<string>>(new Set());
+  // const [triggeredSections, setTriggeredSections] = useState<Set<string>>(new Set()); // Removed
 
   // Efecto para resetear la animación del botón CTA después de que se complete
   useEffect(() => {
@@ -34,40 +34,40 @@ export function Header() {
     }
   }, [animateCtaButton]);
 
-  // Efecto para manejar la lógica de scroll y activar la animación
-  useEffect(() => {
-    const handleScrollOrVisibilityChange = () => {
-      if (document.hidden) return; // No hacer nada si la pestaña no está activa
+  // Efecto para manejar la lógica de scroll y activar la animación - REMOVED for nav button
+  // useEffect(() => {
+  //   const handleScrollOrVisibilityChange = () => {
+  //     if (document.hidden) return; // No hacer nada si la pestaña no está activa
 
-      for (const sectionId of SECTIONS_TO_ANIMATE_FOR) {
-        if (triggeredSections.has(sectionId)) {
-          continue; 
-        }
+  //     for (const sectionId of SECTIONS_TO_ANIMATE_FOR) {
+  //       if (triggeredSections.has(sectionId)) {
+  //         continue;
+  //       }
 
-        const sectionElement = document.getElementById(sectionId);
-        if (sectionElement) {
-          const rect = sectionElement.getBoundingClientRect();
-          const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
+  //       const sectionElement = document.getElementById(sectionId);
+  //       if (sectionElement) {
+  //         const rect = sectionElement.getBoundingClientRect();
+  //         const isVisible = rect.top < window.innerHeight * 0.8 && rect.bottom > 0;
 
-          if (isVisible) {
-            setAnimateCtaButton(true);
-            setTriggeredSections(prev => new Set(prev).add(sectionId));
-            break; 
-          }
-        }
-      }
-    };
+  //         if (isVisible) {
+  //           setAnimateCtaButton(true);
+  //           setTriggeredSections(prev => new Set(prev).add(sectionId));
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   };
 
-    const initialCheckTimeout = setTimeout(handleScrollOrVisibilityChange, 100);
-    window.addEventListener('scroll', handleScrollOrVisibilityChange, { passive: true });
-    document.addEventListener('visibilitychange', handleScrollOrVisibilityChange);
+  //   const initialCheckTimeout = setTimeout(handleScrollOrVisibilityChange, 100);
+  //   window.addEventListener('scroll', handleScrollOrVisibilityChange, { passive: true });
+  //   document.addEventListener('visibilitychange', handleScrollOrVisibilityChange);
 
-    return () => {
-      clearTimeout(initialCheckTimeout);
-      window.removeEventListener('scroll', handleScrollOrVisibilityChange);
-      document.removeEventListener('visibilitychange', handleScrollOrVisibilityChange);
-    };
-  }, [triggeredSections]);
+  //   return () => {
+  //     clearTimeout(initialCheckTimeout);
+  //     window.removeEventListener('scroll', handleScrollOrVisibilityChange);
+  //     document.removeEventListener('visibilitychange', handleScrollOrVisibilityChange);
+  //   };
+  // }, [triggeredSections]);
 
   // Efecto para la animación periódica
   useEffect(() => {
@@ -81,7 +81,7 @@ export function Header() {
   }, []); // Se ejecuta una vez al montar
 
   const handleNavLinkClick = () => {
-    setIsSheetOpen(false); 
+    setIsSheetOpen(false);
   };
 
   return (
