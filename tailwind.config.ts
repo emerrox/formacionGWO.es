@@ -85,27 +85,31 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          '5%': { transform: 'scale(1.03) rotate(0deg)' }, /* Comienza a escalar */
-          /* Primera sacudida */
+          '5%': { transform: 'scale(1.03) rotate(0deg)' }, /* Comienza a escalar y mantiene la escala */
+
+          /* Primera sacudida rápida (15% de duración) */
           '10%': { transform: 'scale(1.03) rotate(-4deg)' },
-          '20%': { transform: 'scale(1.03) rotate(4deg)' },
-          '30%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin primera sacudida */
-          /* Segunda sacudida */
-          '35%': { transform: 'scale(1.03) rotate(-4deg)' },
-          '45%': { transform: 'scale(1.03) rotate(4deg)' },
-          '55%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin segunda sacudida */
-          /* Tercera sacudida */
-          '60%': { transform: 'scale(1.03) rotate(-4deg)' },
-          '70%': { transform: 'scale(1.03) rotate(4deg)' },
-          '80%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin tercera sacudida */
-          /* Regreso progresivo al tamaño original */
+          '15%': { transform: 'scale(1.03) rotate(4deg)' },
+          '20%': { transform: 'scale(1.03) rotate(0deg)' },
+
+          /* Segunda sacudida rápida (15% de duración) */
+          '25%': { transform: 'scale(1.03) rotate(-4deg)' },
+          '30%': { transform: 'scale(1.03) rotate(4deg)' },
+          '35%': { transform: 'scale(1.03) rotate(0deg)' },
+
+          /* Tercera sacudida más lenta (25% de duración) */
+          '43%': { transform: 'scale(1.03) rotate(-4deg)' }, /* (35 + 25/3) */
+          '51%': { transform: 'scale(1.03) rotate(4deg)' },  /* (43 + 25/3) */
+          '60%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin de las sacudidas, aún escalado */
+
+          /* Regreso progresivo y más lento al tamaño original (40% de duración) */
           '100%': { transform: 'scale(1) rotate(0deg)' },
         }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.0s ease-in-out 0.5s 1', // Duración aumentada a 1.0s
+        'cta-attention': 'cta-attention 1.0s ease-in-out 0.5s 1',
   		}
   	}
   },
