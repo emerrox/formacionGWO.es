@@ -84,27 +84,28 @@ export default {
   				}
   			},
         'cta-attention': {
-          '0%': { transform: 'scale(1) rotate(0deg)' },
-          '5%': { transform: 'scale(1.03) rotate(0deg)' }, // Escala inicial
+          '0%':    { transform: 'scale(1) rotate(0deg)' },
+          '10%':   { transform: 'scale(1.03) rotate(0deg)' }, // Scale up complete
 
-          // Primera sacudida muy rápida (escala: 1.03, rotación: +/-4deg)
-          '8%': { transform: 'scale(1.03) rotate(-4deg)' },
-          '11%': { transform: 'scale(1.03) rotate(4deg)' },
-          '14%': { transform: 'scale(1.03) rotate(0deg)' },
+          // Shake 1 (+/-4deg)
+          '17%':   { transform: 'scale(1.03) rotate(-4deg)' },
+          '23%':   { transform: 'scale(1.03) rotate(4deg)' },
+          '30%':   { transform: 'scale(1.03) rotate(0deg)' }, // End Shake 1
 
-          // Segunda sacudida muy rápida (escala: 1.03, rotación: +/-4deg)
-          '17%': { transform: 'scale(1.03) rotate(-4deg)' },
-          '20%': { transform: 'scale(1.03) rotate(4deg)' },
-          '23%': { transform: 'scale(1.03) rotate(0deg)' },
+          // Shake 2 (+/-4deg) - starts after a brief pause
+          '35%':   { transform: 'scale(1.03) rotate(0deg)' }, // Start of shake 2 (ensures rotation is reset)
+          '42%':   { transform: 'scale(1.03) rotate(-4deg)' },
+          '48%':   { transform: 'scale(1.03) rotate(4deg)' },
+          '55%':   { transform: 'scale(1.03) rotate(0deg)' }, // End Shake 2
 
-          // Mantener escala antes de la fase lenta
-          '30%': { transform: 'scale(1.03) rotate(0deg)' },
+          // Shake 3 (+/-3deg) - starts after a brief pause
+          '60%':   { transform: 'scale(1.03) rotate(0deg)' }, // Start of shake 3 (ensures rotation is reset)
+          '67%':   { transform: 'scale(1.03) rotate(-3deg)' },
+          '73%':   { transform: 'scale(1.03) rotate(3deg)' },
+          '80%':   { transform: 'scale(1.03) rotate(0deg)' }, // End Shake 3, scale down begins
 
-          // Tercera sacudida (más lenta, rango menor +/-3deg) mientras vuelve al tamaño original progresivamente
-          // Esta fase (30% a 100%) es el 70% de la duración total, haciendo esta parte más lenta.
-          '53%': { transform: 'scale(calc(1 + 0.03 * (1 - (23/70)))) rotate(-3deg)' }, // Progreso en fase de bajada: 23/70
-          '76%': { transform: 'scale(calc(1 + 0.03 * (1 - (46/70)))) rotate(3deg)' },   // Progreso en fase de bajada: 46/70
-          '100%': { transform: 'scale(1) rotate(0deg)' }, // Fin
+          // Scale down
+          '100%':  { transform: 'scale(1) rotate(0deg)' }, // Scale down complete
         }
   		},
   		animation: {
