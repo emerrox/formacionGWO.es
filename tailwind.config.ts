@@ -82,11 +82,19 @@ export default {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+        'cta-attention': {
+          '0%, 100%': { transform: 'scale(1) translateY(0)' },
+          '10%, 30%': { transform: 'scale(1.03) translateY(-3px)' },
+          '20%, 40%': { transform: 'scale(1) translateY(0)' },
+          '50%': { transform: 'scale(1.05) translateY(-5px)' },
+          '60%': { transform: 'scale(1) translateY(0)' },
+        }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        'cta-attention': 'cta-attention 2.5s ease-in-out 0.5s 1',
   		}
   	}
   },

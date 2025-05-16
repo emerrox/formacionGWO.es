@@ -15,7 +15,7 @@ export function HeroSection() {
             Seguridad y técnicas certificadas para aerogeneradores
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="animate-cta-attention">
               <Link href="#contact-form">
                 Solicita Información
                 <ArrowRight className="ml-2 h-5 w-5" />
