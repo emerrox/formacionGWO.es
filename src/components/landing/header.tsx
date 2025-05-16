@@ -6,22 +6,24 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Menu, Award } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
+import { usePathname } from 'next/navigation'; // Import usePathname
 
 const navItems = [
   { label: 'Inicio', href: '#hero' },
   { label: 'Qué es GWO', href: '#gwo-info' },
   { label: 'Nuestros Cursos', href: '#courses' },
-  { label: 'Contacto', href: '#contact' },
+  { label: 'Contacto', href: '#contact' }, // This points to the ContactInfoSection
 ];
 
-const ANIMATION_DURATION = 1000; // ms, should match 'cta-attention' in tailwind.config.ts (1.0s)
-const PERIODIC_ANIMATION_INTERVAL = 10000; // ms, 10 seconds
+const ANIMATION_DURATION = 1000; 
+const PERIODIC_ANIMATION_INTERVAL = 30000; // 30 seconds
 
 export function Header() {
   const [animateCtaButton, setAnimateCtaButton] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const pathname = usePathname(); // Get current pathname
+  const isHomePage = pathname === '/';
 
-  // Effect to reset the CTA button animation after it completes
   useEffect(() => {
     if (animateCtaButton) {
       const timer = setTimeout(() => {
@@ -31,20 +33,23 @@ export function Header() {
     }
   }, [animateCtaButton]);
 
-  // Effect for periodic animation of the CTA button in the header
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (!document.hidden) { // Only animate if the tab is visible
+      if (!document.hidden) {
         setAnimateCtaButton(true);
       }
     }, PERIODIC_ANIMATION_INTERVAL);
 
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
   }, []);
 
 
   const handleNavLinkClick = () => {
     setIsSheetOpen(false);
+  };
+
+  const getCorrectHref = (baseHref: string) => {
+    return isHomePage ? baseHref : `/${baseHref}`;
   };
 
   return (
@@ -57,8 +62,8 @@ export function Header() {
         <nav className="hidden flex-1 items-center space-x-6 text-sm font-medium md:flex">
           {navItems.map((item) => (
             <Link
-              key={item.href}
-              href={item.href}
+              key={item.label}
+              href={getCorrectHref(item.href)}
               onClick={handleNavLinkClick}
               className="text-foreground/60 transition-colors hover:text-foreground/80"
             >
@@ -71,7 +76,7 @@ export function Header() {
             asChild
             className={`hidden md:inline-flex ${animateCtaButton ? 'animate-cta-attention' : ''}`}
           >
-            <Link href="#contact-form">Solicita Información</Link>
+            <Link href={getCorrectHref('#contact-form')}>Solicita Información</Link>
           </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
@@ -83,9 +88,9 @@ export function Header() {
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium mt-8">
                 {navItems.map((item) => (
-                  <SheetClose asChild key={item.href}>
+                  <SheetClose asChild key={item.label}>
                     <Link
-                      href={item.href}
+                      href={getCorrectHref(item.href)}
                       onClick={handleNavLinkClick}
                       className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                     >
@@ -95,7 +100,7 @@ export function Header() {
                 ))}
                 <SheetClose asChild>
                   <Button asChild className="mt-4">
-                    <Link href="#contact-form" onClick={handleNavLinkClick}>Solicita Información</Link>
+                    <Link href={getCorrectHref('#contact-form')} onClick={handleNavLinkClick}>Solicita Información</Link>
                   </Button>
                 </SheetClose>
               </nav>
