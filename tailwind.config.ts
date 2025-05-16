@@ -85,19 +85,25 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          '10%': { transform: 'scale(1.02) rotate(-6deg)' }, /* Sacudida 1 Izquierda, crece un poco */
-          '20%': { transform: 'scale(1.03) rotate(6deg)' },  /* Sacudida 1 Derecha, crece más */
-          '30%': { transform: 'scale(1.04) rotate(0deg)' },  /* Fin Sacudida 1, sigue creciendo */
-          '40%': { transform: 'scale(1.05) rotate(-6deg)' }, /* Sacudida 2 Izquierda, máximo crecimiento */
-          '50%': { transform: 'scale(1.04) rotate(6deg)' },  /* Sacudida 2 Derecha, empieza a encoger */
-          '60%': { transform: 'scale(1.03) rotate(0deg)' },  /* Fin Sacudida 2, sigue encogiendo */
-          '100%': { transform: 'scale(1) rotate(0deg)' },    /* Tamaño y rotación originales */
+          /* Shake 1 - Growing */
+          '10%': { transform: 'scale(1.02) rotate(-6deg)' },
+          '20%': { transform: 'scale(1.04) rotate(6deg)' },
+          '30%': { transform: 'scale(1.05) rotate(0deg)' }, /* Peak scale, end of first shake cycle */
+          /* Shake 2 - Shrinking from peak */
+          '40%': { transform: 'scale(1.04) rotate(-6deg)' },
+          '50%': { transform: 'scale(1.02) rotate(6deg)' },
+          '60%': { transform: 'scale(1.01) rotate(0deg)' }, /* Still shrinking, end of second shake cycle */
+          /* Shake 3 - Returning to original size */
+          '70%': { transform: 'scale(1.005) rotate(-6deg)' },
+          '80%': { transform: 'scale(1) rotate(6deg)' },
+          '90%': { transform: 'scale(1) rotate(0deg)' }, /* Animation almost complete */
+          '100%': { transform: 'scale(1) rotate(0deg)' } /* Ensure final state */
         }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1', /* Duración ajustada a 1.5s */
+        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1',
   		}
   	}
   },
