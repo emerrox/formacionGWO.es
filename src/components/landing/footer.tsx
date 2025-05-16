@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Wind } from 'lucide-react';
+import { Award } from 'lucide-react'; // Changed Wind to Award
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
-            <Wind className="h-6 w-6 mr-2 text-primary" />
+            <Award className="h-6 w-6 mr-2 text-primary" /> {/* Changed Wind to Award */}
             <span className="font-semibold text-foreground">formacionGWO.es</span>
           </div>
           <nav className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 mb-4 md:mb-0">

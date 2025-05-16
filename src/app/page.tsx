@@ -1,5 +1,6 @@
 import { Header } from '@/components/landing/header';
 import { HeroSection } from '@/components/landing/hero-section';
+import { GwoInfoSection } from '@/components/landing/gwo-info-section';
 import { CoursesSection } from '@/components/landing/courses-section';
 import { ContactInfoSection } from '@/components/landing/contact-info-section';
 import { ContactFormSection } from '@/components/landing/contact-form-section';
@@ -49,6 +50,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+        <GwoInfoSection />
         <CoursesSection />
         <ContactInfoSection />
         <ContactFormSection />
