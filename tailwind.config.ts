@@ -85,14 +85,19 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          /* Primera sacudida y escalado hacia arriba */
-          '10%': { transform: 'scale(1.02) rotate(-8deg)' },
-          '25%': { transform: 'scale(1.05) rotate(8deg)' }, /* Máxima escala alcanzada */
-          '40%': { transform: 'scale(1.05) rotate(0deg)' }, /* Fin primera sacudida, mantiene escala */
+          '5%': { transform: 'scale(1.02) rotate(0deg)' }, /* Comienza a escalar */
+          /* Primera sacudida, escala hasta max */
+          '10%': { transform: 'scale(1.03) rotate(-5deg)' },
+          '20%': { transform: 'scale(1.05) rotate(5deg)' }, /* Máxima escala alcanzada */
+          '30%': { transform: 'scale(1.05) rotate(0deg)' }, /* Fin primera sacudida, mantiene escala */
           /* Segunda sacudida, mantiene escala */
-          '50%': { transform: 'scale(1.05) rotate(-8deg)' },
-          '65%': { transform: 'scale(1.05) rotate(8deg)' },
-          '75%': { transform: 'scale(1.05) rotate(0deg)' }, /* Fin segunda sacudida, mantiene escala */
+          '35%': { transform: 'scale(1.05) rotate(-5deg)' },
+          '45%': { transform: 'scale(1.05) rotate(5deg)' },
+          '55%': { transform: 'scale(1.05) rotate(0deg)' }, /* Fin segunda sacudida, mantiene escala */
+          /* Tercera sacudida, mantiene escala */
+          '60%': { transform: 'scale(1.05) rotate(-5deg)' },
+          '70%': { transform: 'scale(1.05) rotate(5deg)' },
+          '80%': { transform: 'scale(1.05) rotate(0deg)' }, /* Fin tercera sacudida, mantiene escala */
           /* Regreso progresivo al tamaño original */
           '100%': { transform: 'scale(1) rotate(0deg)' },
         }
