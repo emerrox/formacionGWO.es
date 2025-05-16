@@ -15,7 +15,7 @@ const navItems = [
 ];
 
 const ANIMATION_DURATION = 1000; // ms, should match 'cta-attention' in tailwind.config.ts (1.0s)
-const PERIODIC_ANIMATION_INTERVAL = 30000; // ms, e.g., 30 seconds
+const PERIODIC_ANIMATION_INTERVAL = 10000; // ms, e.g., 10 seconds
 
 export function Header() {
   const [animateCtaButton, setAnimateCtaButton] = useState(false);

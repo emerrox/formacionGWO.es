@@ -84,15 +84,8 @@ export default {
   				}
   			},
         'cta-attention': {
-          '0%': { transform: 'rotate(0deg)' },
-          '10%': { transform: 'rotate(-4deg)' },
-          '20%': { transform: 'rotate(4deg)' },
-          '30%': { transform: 'rotate(-4deg)' },
-          '40%': { transform: 'rotate(4deg)' },
-          '50%': { transform: 'rotate(-3deg)' },
-          '60%': { transform: 'rotate(3deg)' },
-          '70%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(0deg)' },
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
         }
   		}
   	},
