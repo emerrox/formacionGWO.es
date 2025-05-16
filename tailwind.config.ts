@@ -85,16 +85,19 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          '25%': { transform: 'scale(1.05) rotate(-6deg)' }, /* Crece y rota a la izquierda */
-          '50%': { transform: 'scale(1.05) rotate(6deg)' },  /* Mantiene tamaño, rota a la derecha */
-          '75%': { transform: 'scale(1.02) rotate(0deg)' }, /* Empieza a encoger, vuelve al centro */
-          '100%': { transform: 'scale(1) rotate(0deg)' }, /* Tamaño y rotación originales */
+          '10%': { transform: 'scale(1.02) rotate(-6deg)' }, /* Sacudida 1 Izquierda, crece un poco */
+          '20%': { transform: 'scale(1.03) rotate(6deg)' },  /* Sacudida 1 Derecha, crece más */
+          '30%': { transform: 'scale(1.04) rotate(0deg)' },  /* Fin Sacudida 1, sigue creciendo */
+          '40%': { transform: 'scale(1.05) rotate(-6deg)' }, /* Sacudida 2 Izquierda, máximo crecimiento */
+          '50%': { transform: 'scale(1.04) rotate(6deg)' },  /* Sacudida 2 Derecha, empieza a encoger */
+          '60%': { transform: 'scale(1.03) rotate(0deg)' },  /* Fin Sacudida 2, sigue encogiendo */
+          '100%': { transform: 'scale(1) rotate(0deg)' },    /* Tamaño y rotación originales */
         }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1', /* Duración reducida a 1.5s */
+        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1', /* Duración ajustada a 1.5s */
   		}
   	}
   },
