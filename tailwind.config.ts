@@ -85,25 +85,21 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'rotate(0deg)' },
-          // Shake 1
-          '8%': { transform: 'rotate(-4deg)' },
-          '21%': { transform: 'rotate(4deg)' },
-          '33%': { transform: 'rotate(0deg)' },
-          // Shake 2 (starts immediately from 0deg)
-          '41%': { transform: 'rotate(-4deg)' }, // 33 + 8
-          '54%': { transform: 'rotate(4deg)' },  // 41 + 13
-          '66%': { transform: 'rotate(0deg)' },  // 54 + 12
-          // Shake 3 (smaller angle, starts immediately from 0deg)
-          '75%': { transform: 'rotate(-3deg)' }, // 66 + 9
-          '88%': { transform: 'rotate(3deg)' },  // 75 + 13
-          '100%': { transform: 'rotate(0deg)' }, // 88 + 12
+          '10%': { transform: 'rotate(-4deg)' },
+          '20%': { transform: 'rotate(4deg)' },
+          '30%': { transform: 'rotate(-4deg)' },
+          '40%': { transform: 'rotate(4deg)' },
+          '50%': { transform: 'rotate(-3deg)' },
+          '60%': { transform: 'rotate(3deg)' },
+          '70%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(0deg)' },
         }
   		}
   	},
   	animation: {
   		'accordion-down': 'accordion-down 0.2s ease-out',
   		'accordion-up': 'accordion-up 0.2s ease-out',
-      'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1',
+      'cta-attention': 'cta-attention 1.0s ease-in-out 0.5s 1',
   	}
   },
   plugins: [require("tailwindcss-animate")],

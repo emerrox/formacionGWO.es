@@ -14,7 +14,7 @@ const navItems = [
   { label: 'Contacto', href: '#contact' },
 ];
 
-const ANIMATION_DURATION = 1500; // ms, should match 'cta-attention' in tailwind.config.ts (1.5s)
+const ANIMATION_DURATION = 1000; // ms, should match 'cta-attention' in tailwind.config.ts (1.0s)
 const PERIODIC_ANIMATION_INTERVAL = 10000; // ms, e.g., 10 seconds
 
 export function Header() {
@@ -40,7 +40,8 @@ export function Header() {
     }, PERIODIC_ANIMATION_INTERVAL);
 
     return () => clearInterval(intervalId); // Cleanup interval on unmount
-  }, []); // Runs once on mount
+  }, []); 
+
 
   const handleNavLinkClick = () => {
     setIsSheetOpen(false);
