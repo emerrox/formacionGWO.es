@@ -16,7 +16,7 @@ const navItems = [
 
 // IDs de las secciones que deben disparar la animación al volverse visibles
 const SECTIONS_TO_ANIMATE_FOR = ['gwo-info', 'courses'];
-const ANIMATION_DURATION = 2500; // ms, should match 'cta-attention' in tailwind.config.ts
+const ANIMATION_DURATION = 1000; // ms, should match 'cta-attention' in tailwind.config.ts
 const PERIODIC_ANIMATION_INTERVAL = 30000; // ms, e.g., 30 seconds
 
 export function Header() {

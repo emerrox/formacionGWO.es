@@ -85,25 +85,25 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          /* Shake 1 - Growing */
-          '10%': { transform: 'scale(1.02) rotate(-6deg)' },
-          '20%': { transform: 'scale(1.04) rotate(6deg)' },
-          '30%': { transform: 'scale(1.05) rotate(0deg)' }, /* Peak scale, end of first shake cycle */
-          /* Shake 2 - Shrinking from peak */
-          '40%': { transform: 'scale(1.04) rotate(-6deg)' },
-          '50%': { transform: 'scale(1.02) rotate(6deg)' },
-          '60%': { transform: 'scale(1.01) rotate(0deg)' }, /* Still shrinking, end of second shake cycle */
-          /* Shake 3 - Returning to original size */
-          '70%': { transform: 'scale(1.005) rotate(-6deg)' },
-          '80%': { transform: 'scale(1) rotate(6deg)' },
-          '90%': { transform: 'scale(1) rotate(0deg)' }, /* Animation almost complete */
-          '100%': { transform: 'scale(1) rotate(0deg)' } /* Ensure final state */
+          /* Grow and First Shake */
+          '10%': { transform: 'scale(1.03) rotate(-8deg)' },
+          '20%': { transform: 'scale(1.05) rotate(8deg)' },
+          '30%': { transform: 'scale(1.06) rotate(0deg)' }, /* Peak scale */
+          /* Second Shake while at peak or starting to shrink */
+          '40%': { transform: 'scale(1.05) rotate(-6deg)' },
+          '50%': { transform: 'scale(1.04) rotate(6deg)' },
+          '60%': { transform: 'scale(1.03) rotate(0deg)' }, /* Start noticeable shrink */
+          /* Third Shake while returning to original size */
+          '70%': { transform: 'scale(1.02) rotate(-4deg)' },
+          '80%': { transform: 'scale(1.01) rotate(4deg)' },
+          '90%': { transform: 'scale(1) rotate(0deg)' },
+          '100%': { transform: 'scale(1) rotate(0deg)' }
         }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1',
+        'cta-attention': 'cta-attention 1.0s ease-in-out 0.5s 1',
   		}
   	}
   },
