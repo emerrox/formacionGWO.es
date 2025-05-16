@@ -87,29 +87,30 @@ export default {
           '0%': { transform: 'scale(1) rotate(0deg)' },
           '5%': { transform: 'scale(1.03) rotate(0deg)' }, /* Comienza a escalar y mantiene la escala */
 
-          /* Primera sacudida rápida (15% de duración) */
+          /* Primera sacudida (escala: 1.03, rotación: +/-4deg) */
           '10%': { transform: 'scale(1.03) rotate(-4deg)' },
           '15%': { transform: 'scale(1.03) rotate(4deg)' },
           '20%': { transform: 'scale(1.03) rotate(0deg)' },
 
-          /* Segunda sacudida rápida (15% de duración) */
+          /* Segunda sacudida (escala: 1.03, rotación: +/-4deg) */
           '25%': { transform: 'scale(1.03) rotate(-4deg)' },
           '30%': { transform: 'scale(1.03) rotate(4deg)' },
           '35%': { transform: 'scale(1.03) rotate(0deg)' },
 
-          /* Tercera sacudida más lenta (25% de duración) */
-          '43%': { transform: 'scale(1.03) rotate(-4deg)' }, /* (35 + 25/3) */
-          '51%': { transform: 'scale(1.03) rotate(4deg)' },  /* (43 + 25/3) */
-          '60%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin de las sacudidas, aún escalado */
+          /* Pausa opcional o inicio de la fase de reducción/última sacudida */
+          '50%': { transform: 'scale(1.03) rotate(0deg)' }, /* Mantiene escala antes de la última fase */
 
-          /* Regreso progresivo y más lento al tamaño original (40% de duración) */
-          '100%': { transform: 'scale(1) rotate(0deg)' },
+          /* Tercera sacudida (rango menor: +/-3deg) Y Reducción de Escala (de 1.03 a 1) */
+          /* Esta fase es de 50% a 100% de la duración total */
+          '66%': { transform: 'scale(calc(1 + 0.03 * (1 - (16/50)))) rotate(-3deg)' }, /* Escala ~1.02, -3deg */
+          '82%': { transform: 'scale(calc(1 + 0.03 * (1 - (32/50)))) rotate(3deg)' },  /* Escala ~1.01, +3deg */
+          '100%': { transform: 'scale(1) rotate(0deg)' }, /* Fin de la animación, escala y rotación originales */
         }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1', // Duración aumentada a 1.5s
+        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1', 
   		}
   	}
   },
