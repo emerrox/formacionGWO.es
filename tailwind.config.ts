@@ -84,28 +84,25 @@ export default {
   				}
   			},
         'cta-attention': {
-          '0%':    { transform: 'scale(1) rotate(0deg)' },
-          '10%':   { transform: 'scale(1.03) rotate(0deg)' }, // Scale up complete
+          '0%':    { transform: 'rotate(0deg)' },
+          '10%':   { transform: 'rotate(0deg)' },
 
           // Shake 1 (+/-4deg)
-          '17%':   { transform: 'scale(1.03) rotate(-4deg)' },
-          '23%':   { transform: 'scale(1.03) rotate(4deg)' },
-          '30%':   { transform: 'scale(1.03) rotate(0deg)' }, // End Shake 1
+          '17%':   { transform: 'rotate(-4deg)' },
+          '23%':   { transform: 'rotate(4deg)' },
+          '30%':   { transform: 'rotate(0deg)' },
 
-          // Shake 2 (+/-4deg) - starts after a brief pause
-          '35%':   { transform: 'scale(1.03) rotate(0deg)' }, // Start of shake 2 (ensures rotation is reset)
-          '42%':   { transform: 'scale(1.03) rotate(-4deg)' },
-          '48%':   { transform: 'scale(1.03) rotate(4deg)' },
-          '55%':   { transform: 'scale(1.03) rotate(0deg)' }, // End Shake 2
+          // Shake 2 (+/-4deg)
+          '35%':   { transform: 'rotate(0deg)' },
+          '42%':   { transform: 'rotate(-4deg)' },
+          '48%':   { transform: 'rotate(4deg)' },
+          '55%':   { transform: 'rotate(0deg)' },
 
-          // Shake 3 (+/-3deg) - starts after a brief pause
-          '60%':   { transform: 'scale(1.03) rotate(0deg)' }, // Start of shake 3 (ensures rotation is reset)
-          '67%':   { transform: 'scale(1.03) rotate(-3deg)' },
-          '73%':   { transform: 'scale(1.03) rotate(3deg)' },
-          '80%':   { transform: 'scale(1.03) rotate(0deg)' }, // End Shake 3, scale down begins
-
-          // Scale down
-          '100%':  { transform: 'scale(1) rotate(0deg)' }, // Scale down complete
+          // Shake 3 (+/-3deg) - slower
+          '60%':   { transform: 'rotate(0deg)' },
+          '73%':   { transform: 'rotate(-3deg)' },
+          '86%':   { transform: 'rotate(3deg)' },
+          '100%':  { transform: 'rotate(0deg)' },
         }
   		},
   		animation: {
