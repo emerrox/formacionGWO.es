@@ -84,32 +84,35 @@ export default {
   				}
   			},
         'cta-attention': {
-          '0%':    { transform: 'rotate(0deg)' },
-          '10%':   { transform: 'rotate(0deg)' },
+          '0%': { transform: 'rotate(0deg)' },
+          '8%': { transform: 'rotate(0deg)' }, // Initial Hold
 
-          // Shake 1 (+/-4deg)
-          '17%':   { transform: 'rotate(-4deg)' },
-          '23%':   { transform: 'rotate(4deg)' },
-          '30%':   { transform: 'rotate(0deg)' },
+          // Shake 1 (-4deg to 4deg)
+          '16%': { transform: 'rotate(-4deg)' }, // 8% for 0 to -4
+          '27%': { transform: 'rotate(4deg)' },  // 11% for -4 to 4 (smoother swing)
+          '35%': { transform: 'rotate(0deg)' },  // 8% for 4 to 0
 
-          // Shake 2 (+/-4deg)
-          '35%':   { transform: 'rotate(0deg)' },
-          '42%':   { transform: 'rotate(-4deg)' },
-          '48%':   { transform: 'rotate(4deg)' },
-          '55%':   { transform: 'rotate(0deg)' },
+          '39%': { transform: 'rotate(0deg)' }, // Hold between shakes
 
-          // Shake 3 (+/-3deg) - slower
-          '60%':   { transform: 'rotate(0deg)' },
-          '73%':   { transform: 'rotate(-3deg)' },
-          '86%':   { transform: 'rotate(3deg)' },
-          '100%':  { transform: 'rotate(0deg)' },
+          // Shake 2 (-4deg to 4deg)
+          '47%': { transform: 'rotate(-4deg)' }, // 8% for 0 to -4
+          '58%': { transform: 'rotate(4deg)' },  // 11% for -4 to 4 (smoother swing)
+          '66%': { transform: 'rotate(0deg)' },  // 8% for 4 to 0
+
+          '70%': { transform: 'rotate(0deg)' }, // Hold between shakes
+
+          // Shake 3 (-3deg to 3deg)
+          '78%': { transform: 'rotate(-3deg)' }, // 8% for 0 to -3
+          '88%': { transform: 'rotate(3deg)' },  // 10% for -3 to 3 (smoother swing)
+          '96%': { transform: 'rotate(0deg)' },  // 8% for 3 to 0
+          '100%': { transform: 'rotate(0deg)' }, // Final hold
         }
-  		},
-  		animation: {
-  			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1', 
   		}
+  	},
+  	animation: {
+  		'accordion-down': 'accordion-down 0.2s ease-out',
+  		'accordion-up': 'accordion-up 0.2s ease-out',
+      'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1',
   	}
   },
   plugins: [require("tailwindcss-animate")],
