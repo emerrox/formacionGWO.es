@@ -1,3 +1,4 @@
+
 import type { Course } from '@/types';
 import { Briefcase, Waves, Users, Wind, ShieldCheck, Wrench, Zap, Droplets, ArrowUpDown, LifeBuoy, Package, Flame, Mountain, PlusCircle, Presentation, KeyRound, SignalIcon, AlertTriangle, Construction, Stethoscope } from 'lucide-react';
 
@@ -37,7 +38,7 @@ export const courses: Course[] = [
       { name: 'Instalación y mantenimiento (14h)', icon: ArrowUpDown }
     ],
     duration: 'Total: 25h',
-    image: '/images/slt.png',
+    image: '/images/lt.png', // Corregido
     imageHint: 'lift training elevator',
     shortDescription: 'Formación completa para el uso y mantenimiento de elevadores.'
   },
@@ -100,7 +101,7 @@ export const courses: Course[] = [
       { name: 'Seguridad de fluidos a presión', icon: Droplets }
     ],
     duration: '22h',
-    image: '/images/cohe.png',
+    image: '/images/che.png', // Corregido
     imageHint: 'hazardous energy control',
     shortDescription: 'Control y gestión de energías peligrosas en entornos industriales.'
   },
@@ -113,7 +114,7 @@ export const courses: Course[] = [
       { name: 'Uso de polipastos', icon: ArrowUpDown }
     ],
     duration: '14h',
-    image: '/images/sls.png',
+    image: '/images/ss.png', // Corregido
     imageHint: 'slinger signaller crane',
     shortDescription: 'Capacitación para señalistas y manejo seguro de cargas.'
   },
