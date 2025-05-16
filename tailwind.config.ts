@@ -86,18 +86,18 @@ export default {
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
           '5%': { transform: 'scale(1.03) rotate(0deg)' }, /* Comienza a escalar */
-          /* Primera sacudida, escala hasta max */
-          '10%': { transform: 'scale(1.03) rotate(-3deg)' },
-          '20%': { transform: 'scale(1.03) rotate(3deg)' }, /* Máxima escala alcanzada */
-          '30%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin primera sacudida, mantiene escala */
-          /* Segunda sacudida, mantiene escala */
-          '35%': { transform: 'scale(1.03) rotate(-3deg)' },
-          '45%': { transform: 'scale(1.03) rotate(3deg)' },
-          '55%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin segunda sacudida, mantiene escala */
-          /* Tercera sacudida, mantiene escala */
-          '60%': { transform: 'scale(1.03) rotate(-3deg)' },
-          '70%': { transform: 'scale(1.03) rotate(3deg)' },
-          '80%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin tercera sacudida, mantiene escala */
+          /* Primera sacudida */
+          '10%': { transform: 'scale(1.03) rotate(-4deg)' },
+          '20%': { transform: 'scale(1.03) rotate(4deg)' },
+          '30%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin primera sacudida */
+          /* Segunda sacudida */
+          '35%': { transform: 'scale(1.03) rotate(-4deg)' },
+          '45%': { transform: 'scale(1.03) rotate(4deg)' },
+          '55%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin segunda sacudida */
+          /* Tercera sacudida */
+          '60%': { transform: 'scale(1.03) rotate(-4deg)' },
+          '70%': { transform: 'scale(1.03) rotate(4deg)' },
+          '80%': { transform: 'scale(1.03) rotate(0deg)' }, /* Fin tercera sacudida */
           /* Regreso progresivo al tamaño original */
           '100%': { transform: 'scale(1) rotate(0deg)' },
         }
@@ -105,7 +105,7 @@ export default {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 0.8s ease-in-out 0.5s 1',
+        'cta-attention': 'cta-attention 1.0s ease-in-out 0.5s 1', // Duración aumentada a 1.0s
   		}
   	}
   },
