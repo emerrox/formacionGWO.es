@@ -109,7 +109,7 @@ export default {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
-        'cta-attention': 'cta-attention 1.0s ease-in-out 0.5s 1',
+        'cta-attention': 'cta-attention 1.5s ease-in-out 0.5s 1', // Duración aumentada a 1.5s
   		}
   	}
   },
