@@ -85,19 +85,14 @@ export default {
   			},
         'cta-attention': {
           '0%': { transform: 'scale(1) rotate(0deg)' },
-          /* Grow and First Shake */
-          '10%': { transform: 'scale(1.03) rotate(-8deg)' },
-          '20%': { transform: 'scale(1.05) rotate(8deg)' },
-          '30%': { transform: 'scale(1.06) rotate(0deg)' }, /* Peak scale */
-          /* Second Shake while at peak or starting to shrink */
-          '40%': { transform: 'scale(1.05) rotate(-6deg)' },
-          '50%': { transform: 'scale(1.04) rotate(6deg)' },
-          '60%': { transform: 'scale(1.03) rotate(0deg)' }, /* Start noticeable shrink */
-          /* Third Shake while returning to original size */
-          '70%': { transform: 'scale(1.02) rotate(-4deg)' },
-          '80%': { transform: 'scale(1.01) rotate(4deg)' },
-          '90%': { transform: 'scale(1) rotate(0deg)' },
-          '100%': { transform: 'scale(1) rotate(0deg)' }
+          /* First shake - growing */
+          '16%': { transform: 'scale(1.04) rotate(-8deg)' }, /* Mid-grow, tilt left */
+          '32%': { transform: 'scale(1.08) rotate(8deg)' },  /* Near peak growth, tilt right */
+          '50%': { transform: 'scale(1.1) rotate(0deg)' },   /* Peak scale, end of first shake rotation */
+          /* Second shake - shrinking */
+          '66%': { transform: 'scale(1.07) rotate(8deg)' },  /* Start shrink, tilt right */
+          '82%': { transform: 'scale(1.03) rotate(-8deg)' }, /* Mid-shrink, tilt left */
+          '100%': { transform: 'scale(1) rotate(0deg)' },  /* Back to original size and rotation */
         }
   		},
   		animation: {
