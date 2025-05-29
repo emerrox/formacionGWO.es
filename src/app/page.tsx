@@ -18,7 +18,7 @@ function generateJsonLd(courseList: Course[]) {
       "@type": "Product",
       "name": course.title,
       "description": `${course.shortDescription || ''} Módulos: ${course.modules.map(m => m.name).join('; ')}. Duración: ${course.duration}.`,
-      "image": course.image,
+      "image": course.image, // Assumes relative path like 'images/bst.png'
       "brand": {
         "@type": "Brand",
         "name": "gwotraining.es"
@@ -33,6 +33,17 @@ function generateJsonLd(courseList: Course[]) {
     "description": "Lista de cursos de formación GWO para la industria eólica.",
     "itemListElement": itemListElement,
   };
+}
+
+// Minimal fallback for Suspense at the page level
+function PageLevelContactFormFallback() {
+  return (
+    <section id="contact-form-suspense-fallback" className="py-16 md:py-24 bg-background text-center">
+      <div className="container mx-auto px-4 md:px-6">
+        <p className="text-lg font-semibold text-primary">Cargando formulario de contacto...</p>
+      </div>
+    </section>
+  );
 }
 
 
@@ -51,13 +62,7 @@ export default function HomePage() {
         <GwoInfoSection />
         <CoursesSection />
         <ContactInfoSection />
-        <Suspense fallback={
-          <section id="contact-form-placeholder" className="py-16 md:py-24 bg-background text-center">
-            <div className="container mx-auto px-4 md:px-6">
-              <p className="text-lg font-semibold text-primary">Cargando sección de contacto...</p>
-            </div>
-          </section>
-        }>
+        <Suspense fallback={<PageLevelContactFormFallback />}>
           <DynamicContactFormLoader />
         </Suspense>
       </main>
