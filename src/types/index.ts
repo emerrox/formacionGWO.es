@@ -1,10 +1,10 @@
 
 import type { LucideIcon, LucideProps } from 'lucide-react';
-import type * as LucideIcons from 'lucide-react';
+import type * as LucideIcons from 'lucide-react'; // For keyof typeof
 
 export interface CourseModule {
   name: string;
-  iconName?: keyof typeof LucideIcons; // Store icon name instead of component
+  iconName?: keyof typeof LucideIcons; // Changed from 'icon' to 'iconName' and type to string key
 }
 
 export interface Course {
