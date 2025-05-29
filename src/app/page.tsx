@@ -1,14 +1,37 @@
+
 import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import { Header } from '@/components/landing/header';
 import { HeroSection } from '@/components/landing/hero-section';
 import { GwoInfoSection } from '@/components/landing/gwo-info-section';
 import { CoursesSection } from '@/components/landing/courses-section';
 import { ContactInfoSection } from '@/components/landing/contact-info-section';
-import { ContactFormSection } from '@/components/landing/contact-form-section';
 import { Footer } from '@/components/landing/footer';
 import { courses } from '@/config/courses';
 import type { Course } from '@/types';
-import { Skeleton } from '@/components/ui/skeleton'; // Using Skeleton for a simple fallback
+
+// Fallback component
+function ContactFormLoadingFallback() {
+  return (
+    <section id="contact-form-loading" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-2xl mx-auto text-center p-6 md:p-8 border bg-card shadow-xl rounded-lg">
+          <p className="text-lg font-semibold text-primary">Cargando formulario de contacto...</p>
+          <p className="text-sm text-muted-foreground mt-2">Un momento, por favor.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Dynamically import ContactFormSection with SSR turned off
+const ContactFormSection = dynamic(
+  () => import('@/components/landing/contact-form-section').then(mod => mod.ContactFormSection),
+  {
+    ssr: false,
+    loading: () => <ContactFormLoadingFallback />,
+  }
+);
 
 function generateJsonLd(courseList: Course[]) {
   const itemListElement = courseList.map((course, index) => ({
@@ -23,11 +46,6 @@ function generateJsonLd(courseList: Course[]) {
         "@type": "Brand",
         "name": "gwotraining.es"
       },
-      // "offers": { // If pricing is available
-      //   "@type": "Offer",
-      //   "priceCurrency": "EUR",
-      //   "price": course.price || "0" // Replace with actual price if available
-      // }
     }
   }));
 
@@ -38,36 +56,6 @@ function generateJsonLd(courseList: Course[]) {
     "description": "Lista de cursos de formación GWO para la industria eólica.",
     "itemListElement": itemListElement,
   };
-}
-
-function ContactFormFallback() {
-  return (
-    <section id="contact-form-loading" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-2xl mx-auto shadow-xl rounded-lg p-6 md:p-8 border bg-card">
-          <div className="text-center mb-6">
-            <Skeleton className="h-8 w-3/4 mx-auto mb-2" />
-            <Skeleton className="h-4 w-1/2 mx-auto" />
-          </div>
-          <div className="space-y-6">
-            <div>
-              <Skeleton className="h-4 w-1/4 mb-2" />
-              <Skeleton className="h-10 w-full" />
-            </div>
-            <div>
-              <Skeleton className="h-4 w-1/4 mb-2" />
-              <Skeleton className="h-10 w-full" />
-            </div>
-            <div>
-              <Skeleton className="h-4 w-1/4 mb-2" />
-              <Skeleton className="h-20 w-full" />
-            </div>
-            <Skeleton className="h-10 w-1/3" />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
 }
 
 
@@ -86,9 +74,11 @@ export default function HomePage() {
         <GwoInfoSection />
         <CoursesSection />
         <ContactInfoSection />
-        <Suspense fallback={<ContactFormFallback />}>
-          <ContactFormSection />
-        </Suspense>
+        {/*
+          The ContactFormSection is now dynamically imported with ssr: false,
+          and its 'loading' prop handles the fallback state.
+        */}
+        <ContactFormSection />
       </main>
       <Footer />
     </>

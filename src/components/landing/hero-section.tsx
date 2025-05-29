@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -26,7 +27,7 @@ export function HeroSection() {
         <div className="mt-16 sm:mt-24">
           <div className="relative aspect-[2/1] w-full max-w-4xl mx-auto overflow-hidden rounded-xl shadow-2xl">
             <Image
-              src="/images/portada.png"
+              src="images/portada.png" // Changed from /images/portada.png
               alt="Trabajadores en un aerogenerador realizando mantenimiento"
               fill
               style={{ objectFit: 'cover' }}
