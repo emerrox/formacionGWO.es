@@ -27,7 +27,7 @@ export function HeroSection() {
         <div className="mt-16 sm:mt-24">
           <div className="relative aspect-[2/1] w-full max-w-4xl mx-auto overflow-hidden rounded-xl shadow-2xl">
             <Image
-              src="/images/portada.png"
+              src="images/portada.png" // No leading slash
               alt="Trabajadores en un aerogenerador realizando mantenimiento"
               fill
               style={{ objectFit: 'cover' }}

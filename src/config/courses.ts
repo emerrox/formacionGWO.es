@@ -13,7 +13,7 @@ export const courses: Course[] = [
       { name: 'Supervivencia en el mar', iconName: 'LifeBuoy' }
     ],
     duration: '28h onshore / 35h offshore',
-    image: '/images/bst.png',
+    image: 'images/bst.png', // No leading slash
     imageHint: 'safety training wind turbine',
     shortDescription: 'Entrenamiento esencial en seguridad para trabajos en la industria eólica.'
   },
@@ -24,7 +24,7 @@ export const courses: Course[] = [
       { name: 'Refresco de BST (presencial / online parcial)', iconName: 'ShieldCheck' }
     ],
     duration: '18h onshore / 25h offshore',
-    image: '/images/bstr.png',
+    image: 'images/bstr.png', // No leading slash
     imageHint: 'refresher course safety',
     shortDescription: 'Actualización de conocimientos y habilidades del BST.'
   },
@@ -37,7 +37,7 @@ export const courses: Course[] = [
       { name: 'Instalación y mantenimiento (14h)', iconName: 'ArrowUpDown' }
     ],
     duration: 'Total: 25h',
-    image: '/images/lt.png',
+    image: 'images/lt.png', // Corrected name, no leading slash
     imageHint: 'lift training elevator',
     shortDescription: 'Formación completa para el uso y mantenimiento de elevadores.'
   },
@@ -51,7 +51,7 @@ export const courses: Course[] = [
       { name: 'Instalación opcional (18h)', iconName: 'Briefcase' }
     ],
     duration: '30,5h (MEH) / 29h (MI)',
-    image: '/images/btt.png',
+    image: 'images/btt.png', // No leading slash
     imageHint: 'technical training wind turbine',
     shortDescription: 'Capacitación técnica fundamental en mecánica, electricidad e hidráulica.'
   },
@@ -64,7 +64,7 @@ export const courses: Course[] = [
       { name: 'Versión “rescatista único”', iconName: 'Users' }
     ],
     duration: 'Combinado: 21h',
-    image: '/images/art.png',
+    image: 'images/art.png', // No leading slash
     imageHint: 'rescue training height',
     shortDescription: 'Técnicas avanzadas de rescate en diversos componentes de aerogeneradores.'
   },
@@ -76,7 +76,7 @@ export const courses: Course[] = [
       { name: 'Siemens Gamesa Blade Repair', iconName: 'Construction' }
     ],
     duration: '70h',
-    image: '/images/br.png',
+    image: 'images/br.png', // No leading slash
     imageHint: 'blade repair wind turbine',
     shortDescription: 'Especialización en la reparación y mantenimiento de palas de aerogeneradores.'
   },
@@ -87,7 +87,7 @@ export const courses: Course[] = [
       { name: 'Primeros auxilios básico (BST) + Avanzado (EFA)', iconName: 'Stethoscope' }
     ],
     duration: '20h',
-    image: '/images/efa.png',
+    image: 'images/efa.png', // No leading slash
     imageHint: 'first aid advanced',
     shortDescription: 'Formación avanzada en primeros auxilios para situaciones críticas.'
   },
@@ -95,12 +95,12 @@ export const courses: Course[] = [
     id: 'cohe',
     title: 'Control of Hazardous Energies (CoHE)',
     modules: [
-      { name: 'Seguridad básica', iconName: 'TriangleAlert' }, // Corrected from AlertTriangle if that was an issue
+      { name: 'Seguridad básica', iconName: 'TriangleAlert' },
       { name: 'Seguridad eléctrica', iconName: 'Zap' },
       { name: 'Seguridad de fluidos a presión', iconName: 'Droplets' }
     ],
     duration: '22h',
-    image: '/images/che.png',
+    image: 'images/che.png', // Corrected name, no leading slash
     imageHint: 'hazardous energy control',
     shortDescription: 'Control y gestión de energías peligrosas en entornos industriales.'
   },
@@ -113,7 +113,7 @@ export const courses: Course[] = [
       { name: 'Uso de polipastos', iconName: 'ArrowUpDown' }
     ],
     duration: '14h',
-    image: '/images/ss.png',
+    image: 'images/ss.png', // Corrected name, no leading slash
     imageHint: 'slinger signaller crane',
     shortDescription: 'Capacitación para señalistas y manejo seguro de cargas.'
   },
@@ -124,7 +124,7 @@ export const courses: Course[] = [
       { name: 'Acceso restringido onshore/offshore', iconName: 'KeyRound' }
     ],
     duration: '7h',
-    image: '/images/wla.png',
+    image: 'images/wla.png', // No leading slash
     imageHint: 'limited access wind farm',
     shortDescription: 'Protocolos de acceso seguro a zonas restringidas en parques eólicos.'
   },
@@ -135,7 +135,7 @@ export const courses: Course[] = [
       { name: 'Metodologías de enseñanza para adultos', iconName: 'Presentation' }
     ],
     duration: '72h (9 días), certificado permanente',
-    image: '/images/iqt.png',
+    image: 'images/iqt.png', // No leading slash
     imageHint: 'instructor training classroom',
     shortDescription: 'Formación para cualificar instructores en estándares GWO.'
   }

@@ -9,21 +9,20 @@ import { Footer } from '@/components/landing/footer';
 import { courses } from '@/config/courses';
 import type { Course } from '@/types';
 import { DynamicContactFormLoader } from '@/components/landing/dynamic-contact-form-loader';
-// Skeleton import is removed as it's no longer used in the simplified fallback below
 
-// Fallback for the main Suspense boundary around DynamicContactFormLoader
-function ContactFormSuspenseFallback() {
-  return (
-    <section id="contact-form-suspense-fallback" className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-2xl mx-auto text-center p-6 md:p-8 border bg-card shadow-xl rounded-lg">
-          <h2 className="text-2xl font-bold text-primary mb-2">Cargando Formulario</h2>
-          <p className="text-foreground/80">Un momento, por favor...</p>
-        </div>
-      </div>
-    </section>
-  );
-}
+// Fallback for the main Suspense boundary around DynamicContactFormLoader - This function is no longer used directly in Suspense fallback
+// function ContactFormSuspenseFallback() {
+//   return (
+//     <section id="contact-form-suspense-fallback" className="py-16 md:py-24 bg-background">
+//       <div className="container mx-auto px-4 md:px-6">
+//         <div className="max-w-2xl mx-auto text-center p-6 md:p-8 border bg-card shadow-xl rounded-lg">
+//           <h2 className="text-2xl font-bold text-primary mb-2">Cargando Formulario</h2>
+//           <p className="text-foreground/80">Un momento, por favor...</p>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 function generateJsonLd(courseList: Course[]) {
   const itemListElement = courseList.map((course, index) => ({
@@ -33,7 +32,7 @@ function generateJsonLd(courseList: Course[]) {
       "@type": "Product",
       "name": course.title,
       "description": `${course.shortDescription || ''} Módulos: ${course.modules.map(m => m.name).join('; ')}. Duración: ${course.duration}.`,
-      "image": course.image,
+      "image": course.image, // Assuming these paths are like "images/course.png"
       "brand": {
         "@type": "Brand",
         "name": "gwotraining.es"
@@ -66,7 +65,15 @@ export default function HomePage() {
         <GwoInfoSection />
         <CoursesSection />
         <ContactInfoSection />
-        <Suspense fallback={<ContactFormSuspenseFallback />}>
+        <Suspense fallback={
+          <section className="py-16 md:py-24 bg-background">
+            <div className="container mx-auto px-4 md:px-6">
+              <div className="max-w-2xl mx-auto text-center p-8 border bg-card shadow-lg rounded-lg">
+                <h2 className="text-xl font-semibold text-primary">Cargando formulario...</h2>
+              </div>
+            </div>
+          </section>
+        }>
           <DynamicContactFormLoader />
         </Suspense>
       </main>
