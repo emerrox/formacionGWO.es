@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center md:gap-x-8">
           <div className="flex items-center mb-4 md:mb-0">
             <Award className="h-6 w-6 mr-2 text-primary" />
-            <span className="font-semibold text-foreground">formacionGWO.es</span>
+            <span className="font-semibold text-foreground">gwotraining.es</span>
           </div>
           <nav className="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 mb-4 md:mb-0">
             <Link href="/politica-de-cookies" className="text-sm text-foreground/70 hover:text-primary">Política de Cookies</Link>
@@ -18,7 +18,7 @@ export function Footer() {
             {/* <Link href="/aviso-legal" className="text-sm text-foreground/70 hover:text-primary">Aviso Legal</Link> */}
           </nav>
           <p className="text-sm text-foreground/70 text-center md:text-right">
-            &copy; {currentYear} formacionGWO.es. Todos los derechos reservados.
+            &copy; {currentYear} gwotraining.es. Todos los derechos reservados.
           </p>
         </div>
         <div className="text-center text-xs text-foreground/50 mt-6 pt-4 border-t border-border/30">

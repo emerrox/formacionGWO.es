@@ -1,7 +1,7 @@
 
-# GWO Landing Page (formacionGWO.es)
+# GWO Landing Page (gwotraining.es)
 
-This is a Next.js application for formacionGWO.es, a company specializing in GWO (Global Wind Organisation) training courses.
+This is a Next.js application for gwotraining.es, a company specializing in GWO (Global Wind Organisation) training courses.
 
 ## Getting Started
 
@@ -63,10 +63,11 @@ npm run build
 ```
 This command creates an optimized build of your application in the `.next` folder.
 
-To run the production build locally:
+To run the production build locally (if not using static export):
 ```bash
 npm run start
 ```
+If `output: 'export'` is set in `next.config.ts`, the build will be in the `out` directory and can be served with any static file server.
 
 ## Linting and Type Checking
 
@@ -81,22 +82,21 @@ npm run start
 
 ## Key Features
 
--   **Hero Section:** Engaging introduction to formacionGWO.es.
+-   **Hero Section:** Engaging introduction to gwotraining.es.
 -   **Course Listings:** Detailed information about each GWO course offered.
 -   **Contact Information:** Easy access to address, email, and phone.
--   **Contact Form:** Allows users to send inquiries directly, with email notifications via Nodemailer.
+-   **Contact Form:** Allows users to send inquiries directly (via external PHP script for static export).
 -   **SEO Optimized:** Includes JSON-LD for course listings and other SEO best practices.
 -   **Responsive Design:** Adapts to various screen sizes for optimal viewing on all devices.
 -   **Accessible:** Built with accessibility in mind.
 
 ## Technology Stack
 
--   Next.js (App Router)
+-   Next.js (App Router, configured for static export)
 -   React
 -   TypeScript
 -   Tailwind CSS
 -   Shadcn/UI
--   Nodemailer (for contact form emails)
 -   Lucide React (for icons)
 -   Genkit (for AI features, if enabled)
 
@@ -114,4 +114,4 @@ npm ls || true # Use || true if you want the pipeline to continue even if ls sho
 -   **Theme & Styling:** Modify `src/app/globals.css` for global styles and Tailwind CSS theme customization. Individual components can be styled using Tailwind classes.
 -   **Course Data:** Update course information in `src/config/courses.ts`.
 -   **Contact Information:** Change contact details in `src/components/landing/contact-info-section.tsx`.
--   **Email Configuration:** Adjust SMTP settings in your `.env.local` file. The recipient email for the contact form can also be set via `CONTACT_FORM_RECIPIENT` environment variable.
+-   **Contact Form Endpoint:** The PHP endpoint for the contact form is configured in `src/components/landing/contact-form.tsx`.

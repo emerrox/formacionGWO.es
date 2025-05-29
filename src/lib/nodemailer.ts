@@ -54,7 +54,7 @@ export function createHtmlEmailBody(name: string, email: string, message: string
   return `
     <div style="font-family: Arial, sans-serif; line-height: 1.6;">
       <h2 style="color: #007BA7;">Nuevo Mensaje de Contacto</h2>
-      <p>Has recibido un nuevo mensaje a través del formulario de contacto de formacionGWO.es.</p>
+      <p>Has recibido un nuevo mensaje a través del formulario de contacto de gwotraining.es.</p>
       <hr style="border: 0; border-top: 1px solid #eee;">
       <p><strong>Nombre:</strong> ${name}</p>
       <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
@@ -64,7 +64,7 @@ export function createHtmlEmailBody(name: string, email: string, message: string
       </p>
       <hr style="border: 0; border-top: 1px solid #eee;">
       <p style="font-size: 0.9em; color: #777;">
-        Este es un mensaje automático enviado desde formacionGWO.es.
+        Este es un mensaje automático enviado desde gwotraining.es.
       </p>
     </div>
   `;
@@ -74,13 +74,13 @@ export function createPlainTextEmailBody(name: string, email: string, message: s
   return `
 Nuevo Mensaje de Contacto
 --------------------------
-Has recibido un nuevo mensaje a través del formulario de contacto de formacionGWO.es.
+Has recibido un nuevo mensaje a través del formulario de contacto de gwotraining.es.
 
 Nombre: ${name}
 Email: ${email}
 Mensaje:
 ${message}
 --------------------------
-Este es un mensaje automático enviado desde formacionGWO.es.
+Este es un mensaje automático enviado desde gwotraining.es.
   `;
 }

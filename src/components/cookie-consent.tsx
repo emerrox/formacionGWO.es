@@ -36,8 +36,7 @@ export function CookieConsent() {
           <div>
             <CardTitle className="text-lg sm:text-xl font-semibold">Tu Privacidad es Importante</CardTitle>
             <CardDescription className="text-sm text-muted-foreground mt-1">
-              Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Al continuar navegando, aceptas nuestro uso de cookies.
-              {/* TODO: Reemplaza este texto con el contenido de la política de cookies de gwocursos.es si es necesario */}
+              Utilizamos cookies para mejorar tu experiencia en nuestro sitio web (gwotraining.es). Al continuar navegando, aceptas nuestro uso de cookies.
             </CardDescription>
           </div>
         </CardHeader>

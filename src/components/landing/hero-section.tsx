@@ -9,7 +9,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 md:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl text-primary">
-            formacionGWO
+            gwotraining.es
           </h1>
           <p className="mt-6 text-lg leading-8 text-foreground/80 sm:text-xl">
             Seguridad y técnicas certificadas para aerogeneradores
@@ -28,8 +28,8 @@ export function HeroSection() {
             <Image
               src="/images/portada.png"
               alt="Trabajadores en un aerogenerador realizando mantenimiento"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
               priority
               data-ai-hint="wind energy"
             />

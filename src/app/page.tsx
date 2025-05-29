@@ -19,7 +19,7 @@ function generateJsonLd(courseList: Course[]) {
       "image": course.image,
       "brand": {
         "@type": "Brand",
-        "name": "formacionGWO.es"
+        "name": "gwotraining.es"
       },
       // "offers": { // If pricing is available
       //   "@type": "Offer",
@@ -32,7 +32,7 @@ function generateJsonLd(courseList: Course[]) {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Cursos GWO ofrecidos por formacionGWO.es",
+    "name": "Cursos GWO ofrecidos por gwotraining.es",
     "description": "Lista de cursos de formación GWO para la industria eólica.",
     "itemListElement": itemListElement,
   };

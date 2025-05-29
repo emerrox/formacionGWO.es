@@ -12,15 +12,15 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: 'formacionGWO.es - Cursos de Seguridad para Aerogeneradores',
+  title: 'gwotraining.es - Cursos de Seguridad para Aerogeneradores',
   description: 'Especialistas en impartir cursos GWO (Global Wind Organisation). Seguridad y técnicas certificadas para aerogeneradores.',
   keywords: 'GWO, BST, BSTR, SLT, BTT, ART, BR, EFA, CoHE, SLS, WLA, IQT, formación, seguridad, aerogeneradores, eólica, Total HSE',
-  authors: [{ name: 'formacionGWO.es' }],
+  authors: [{ name: 'gwotraining.es' }],
   openGraph: {
-    title: 'formacionGWO.es - Cursos de Seguridad para Aerogeneradores',
+    title: 'gwotraining.es - Cursos de Seguridad para Aerogeneradores',
     description: 'Seguridad y técnicas certificadas para aerogeneradores.',
-    url: 'https://formaciongwo.es', 
-    siteName: 'formacionGWO.es',
+    url: 'https://gwotraining.es',
+    siteName: 'gwotraining.es',
     locale: 'es_ES',
     type: 'website',
   },

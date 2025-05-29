@@ -15,7 +15,7 @@ const navItems = [
   { label: 'Contacto', href: '#contact' }, // This points to the ContactInfoSection
 ];
 
-const ANIMATION_DURATION = 1000; 
+const ANIMATION_DURATION = 1000;
 const PERIODIC_ANIMATION_INTERVAL = 30000; // 30 seconds
 
 export function Header() {
@@ -35,7 +35,7 @@ export function Header() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (!document.hidden) {
+      if (!document.hidden) { // Only animate if the tab is visible
         setAnimateCtaButton(true);
       }
     }, PERIODIC_ANIMATION_INTERVAL);
@@ -57,7 +57,7 @@ export function Header() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
           <Award className="h-6 w-6 text-primary" />
-          <span className="font-bold sm:inline-block">formacionGWO.es</span>
+          <span className="font-bold sm:inline-block">gwotraining.es</span>
         </Link>
         <nav className="hidden flex-1 items-center space-x-6 text-sm font-medium md:flex">
           {navItems.map((item) => (
