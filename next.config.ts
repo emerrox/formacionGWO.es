@@ -3,7 +3,7 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export', // Enable static HTML export
-  assetPrefix: './', // Ensure all asset paths are relative for file:// protocol
+  assetPrefix: '.', // Ensure all asset paths are relative for file:// protocol
   typescript: {
     ignoreBuildErrors: true,
   },

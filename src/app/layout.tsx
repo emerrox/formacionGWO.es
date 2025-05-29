@@ -1,15 +1,12 @@
 
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+// Removed Geist font import
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { CookieConsent } from '@/components/cookie-consent'; // Importar CookieConsent
+import { CookieConsent } from '@/components/cookie-consent';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+// Removed geistSans constant
 
 export const metadata: Metadata = {
   title: 'gwotraining.es - Cursos de Seguridad para Aerogeneradores',
@@ -33,10 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} font-sans antialiased`}>
+      {/* Removed Geist font variable from className */}
+      <body className="font-sans antialiased">
         {children}
         <Toaster />
-        <CookieConsent /> {/* Añadir CookieConsent aquí */}
+        <CookieConsent />
         <SpeedInsights />
       </body>
     </html>

@@ -1,6 +1,4 @@
 
-'use server';
-
 // This file is now mostly empty as form submission is handled client-side
 // for static export. Server actions are not compatible with output: 'export'.
 
