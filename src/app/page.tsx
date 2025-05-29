@@ -5,16 +5,12 @@ import { GwoInfoSection } from '@/components/landing/gwo-info-section';
 import { CoursesSection } from '@/components/landing/courses-section';
 import { ContactInfoSection } from '@/components/landing/contact-info-section';
 import { Footer } from '@/components/landing/footer';
-import { ContactFormSection } from '@/components/landing/contact-form-section'; // Importación directa
+import { ContactFormSection } from '@/components/landing/contact-form-section'; // Direct import
 import { courses } from '@/config/courses';
 import type { Course } from '@/types';
 import { Suspense } from 'react';
 
-// Fallback SUPER minimalista para Suspense, renderiza null para que no haya placeholder visible.
-function ContactFormSuspenseFallback() {
-  return null;
-}
-
+// The ContactFormSuspenseFallback function is no longer needed if using fallback={null} directly.
 
 function generateJsonLd(courseList: Course[]) {
   const itemListElement = courseList.map((course, index) => ({
@@ -62,7 +58,7 @@ export default function HomePage() {
           Next.js requiere que esté envuelto en Suspense.
           El fallback es null para que el formulario parezca cargar directamente en el cliente.
         */}
-        <Suspense fallback={<ContactFormSuspenseFallback />}>
+        <Suspense fallback={null}>
           <ContactFormSection />
         </Suspense>
       </main>
