@@ -108,7 +108,7 @@ export const courses: Course[] = [
     id: 'sls',
     title: 'Slinger Signaller (SLS)',
     modules: [
-      { name: 'Señalización', iconName: 'Signal' }, // Changed from SignalIcon
+      { name: 'Señalización', iconName: 'Signal' },
       { name: 'Elevación de cargas', iconName: 'Package' },
       { name: 'Uso de polipastos', iconName: 'ArrowUpDown' }
     ],

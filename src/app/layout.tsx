@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 // Removed Geist font import
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+// import { SpeedInsights } from "@vercel/speed-insights/next" // Removed
 import { CookieConsent } from '@/components/cookie-consent';
 
 // Removed geistSans constant
@@ -35,7 +35,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         <CookieConsent />
-        <SpeedInsights />
+        {/* <SpeedInsights /> Removed */}
       </body>
     </html>
   );
