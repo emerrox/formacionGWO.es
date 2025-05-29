@@ -5,10 +5,16 @@ import { GwoInfoSection } from '@/components/landing/gwo-info-section';
 import { CoursesSection } from '@/components/landing/courses-section';
 import { ContactInfoSection } from '@/components/landing/contact-info-section';
 import { Footer } from '@/components/landing/footer';
+import { ContactFormSection } from '@/components/landing/contact-form-section'; // Importación directa
 import { courses } from '@/config/courses';
 import type { Course } from '@/types';
 import { Suspense } from 'react';
-import { DynamicContactFormLoader } from '@/components/landing/dynamic-contact-form-loader';
+
+// Fallback SUPER minimalista para Suspense, renderiza null para que no haya placeholder visible.
+function ContactFormSuspenseFallback() {
+  return null;
+}
+
 
 function generateJsonLd(courseList: Course[]) {
   const itemListElement = courseList.map((course, index) => ({
@@ -18,7 +24,7 @@ function generateJsonLd(courseList: Course[]) {
       "@type": "Product",
       "name": course.title,
       "description": `${course.shortDescription || ''} Módulos: ${course.modules.map(m => m.name).join('; ')}. Duración: ${course.duration}.`,
-      "image": course.image, // Assumes relative path like 'images/bst.png'
+      "image": course.image,
       "brand": {
         "@type": "Brand",
         "name": "gwotraining.es"
@@ -33,17 +39,6 @@ function generateJsonLd(courseList: Course[]) {
     "description": "Lista de cursos de formación GWO para la industria eólica.",
     "itemListElement": itemListElement,
   };
-}
-
-// Minimal fallback for Suspense at the page level
-function PageLevelContactFormFallback() {
-  return (
-    <section id="contact-form-suspense-fallback" className="py-16 md:py-24 bg-background text-center">
-      <div className="container mx-auto px-4 md:px-6">
-        <p className="text-lg font-semibold text-primary">Cargando formulario de contacto...</p>
-      </div>
-    </section>
-  );
 }
 
 
@@ -62,8 +57,13 @@ export default function HomePage() {
         <GwoInfoSection />
         <CoursesSection />
         <ContactInfoSection />
-        <Suspense fallback={<PageLevelContactFormFallback />}>
-          <DynamicContactFormLoader />
+        {/* 
+          ContactFormSection usa useSearchParams. Para exportación estática, 
+          Next.js requiere que esté envuelto en Suspense.
+          El fallback es null para que el formulario parezca cargar directamente en el cliente.
+        */}
+        <Suspense fallback={<ContactFormSuspenseFallback />}>
+          <ContactFormSection />
         </Suspense>
       </main>
       <Footer />
