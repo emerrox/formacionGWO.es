@@ -1,9 +1,18 @@
 
+'use client'; // Required for useState and useEffect
+
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/landing/header';
 import { Footer } from '@/components/landing/footer';
 import { Card, CardContent } from '@/components/ui/card';
 
 export default function PoliticaDePrivacidadPage() {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
+
   return (
     <>
       <Header />
@@ -123,9 +132,11 @@ export default function PoliticaDePrivacidadPage() {
               Se tratan las siguientes categorías de datos especiales: salud
             </p>
 
-            <p className="mt-8 text-sm text-muted-foreground">
-              Fecha de última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </p>
+            {currentDate && (
+              <p className="mt-8 text-sm text-muted-foreground">
+                Fecha de última actualización: {currentDate}
+              </p>
+            )}
           </CardContent>
         </Card>
       </main>

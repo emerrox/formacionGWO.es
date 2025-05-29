@@ -1,9 +1,18 @@
 
+'use client'; // Required for useState and useEffect
+
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/landing/header';
 import { Footer } from '@/components/landing/footer';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'; // Usaremos Card para consistencia
+import { Card, CardContent } from '@/components/ui/card'; // Usaremos Card para consistencia
 
 export default function PoliticaDeCookiesPage() {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }));
+  }, []);
+
   return (
     <>
       <Header />
@@ -73,9 +82,11 @@ export default function PoliticaDeCookiesPage() {
               Si desea rechazar las cookies analíticas de Google Analytics en todos los navegadores, de forma que no se envíe información suya a Google Analitys, puede descargar un complemento que realiza esta función desde este enlace: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://tools.google.com/dlpage/gaoptout</a>.
             </p>
             
-            <p className="mt-8 text-sm text-muted-foreground">
-              Fecha de última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </p>
+            {currentDate && (
+              <p className="mt-8 text-sm text-muted-foreground">
+                Fecha de última actualización: {currentDate}
+              </p>
+            )}
           </CardContent>
         </Card>
       </main>

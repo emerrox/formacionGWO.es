@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { Header } from '@/components/landing/header';
 import { HeroSection } from '@/components/landing/hero-section';
 import { GwoInfoSection } from '@/components/landing/gwo-info-section';
@@ -7,6 +8,7 @@ import { ContactFormSection } from '@/components/landing/contact-form-section';
 import { Footer } from '@/components/landing/footer';
 import { courses } from '@/config/courses';
 import type { Course } from '@/types';
+import { Skeleton } from '@/components/ui/skeleton'; // Using Skeleton for a simple fallback
 
 function generateJsonLd(courseList: Course[]) {
   const itemListElement = courseList.map((course, index) => ({
@@ -38,6 +40,37 @@ function generateJsonLd(courseList: Course[]) {
   };
 }
 
+function ContactFormFallback() {
+  return (
+    <section id="contact-form-loading" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="max-w-2xl mx-auto shadow-xl rounded-lg p-6 md:p-8 border bg-card">
+          <div className="text-center mb-6">
+            <Skeleton className="h-8 w-3/4 mx-auto mb-2" />
+            <Skeleton className="h-4 w-1/2 mx-auto" />
+          </div>
+          <div className="space-y-6">
+            <div>
+              <Skeleton className="h-4 w-1/4 mb-2" />
+              <Skeleton className="h-10 w-full" />
+            </div>
+            <div>
+              <Skeleton className="h-4 w-1/4 mb-2" />
+              <Skeleton className="h-10 w-full" />
+            </div>
+            <div>
+              <Skeleton className="h-4 w-1/4 mb-2" />
+              <Skeleton className="h-20 w-full" />
+            </div>
+            <Skeleton className="h-10 w-1/3" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 export default function HomePage() {
   const jsonLd = generateJsonLd(courses);
 
@@ -53,7 +86,9 @@ export default function HomePage() {
         <GwoInfoSection />
         <CoursesSection />
         <ContactInfoSection />
-        <ContactFormSection />
+        <Suspense fallback={<ContactFormFallback />}>
+          <ContactFormSection />
+        </Suspense>
       </main>
       <Footer />
     </>
